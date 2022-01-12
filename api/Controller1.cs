@@ -22,6 +22,17 @@ namespace api
              */
             return Ok(arg.ToString("O"));
         }
+
+        [Route("date-time-offset-query")]
+        public IActionResult GetDateTimeOffsetQuery([FromQuery] DateTimeOffset arg)
+        {
+            /*
+            For NewtonsoftJson with DateTimeZoneHandling.UTC:
+              10:00-5 >> 10:00-5 
+              10:00Z  >> 10:00+0
+             */
+            return Ok(arg.ToString("O"));
+        }
         
         [Route("date-time-body")]
         public IActionResult GetDateTimeBody([FromBody] DateTime arg)
