@@ -16,7 +16,7 @@ namespace api
         public IActionResult GetDateTimeQuery([FromQuery] DateTime arg)
         {
             /*
-            For built-in JSON serialization:
+            For built-in JSON serialization AND NewtonsoftJson:
               10:00-5 >> 07:00-8 
               10:00Z  >> 02:00-8
              */
@@ -27,7 +27,7 @@ namespace api
         public IActionResult GetDateTimeBody([FromBody] DateTime arg)
         {
             /*
-            For built-in JSON serialization:
+            For built-in JSON serialization AND NewtonsoftJson:
               10:00-5 >> 07:00-8 
               10:00Z  >> 10:00Z
              */
