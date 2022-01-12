@@ -1,10 +1,5 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Newtonsoft.Json;
@@ -21,6 +16,12 @@ namespace api
                 .AddNewtonsoftJson(options =>
                 {
                     options.SerializerSettings.DateTimeZoneHandling = DateTimeZoneHandling.Utc;
+                    
+                    // This didn't seem to have any effect...
+                    // options.SerializerSettings.Converters.Add(new IsoDateTimeConverter
+                    // {
+                    //     DateTimeStyles = DateTimeStyles.AdjustToUniversal
+                    // });
                 });
         }
 
