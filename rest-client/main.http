@@ -1,3 +1,21 @@
 ﻿
-### Create an account
+### Base page
 GET https://localhost:5001/
+
+### DateTime in query - Offset
+GET https://localhost:5001/date-time-query?arg=2022-01-12T10:00-05:00
+
+### DateTime in query - Zulu
+GET https://localhost:5001/date-time-query?arg=2022-01-12T10:00Z
+
+### DateTime in body - Offset
+GET https://localhost:5001/date-time-body
+Content-Type: application/json
+
+"2022-01-12T10:00-05:00"
+
+### DateTime in body - Zulu
+GET https://localhost:5001/date-time-body
+Content-Type: application/json
+
+"2022-01-12T10:00Z"
