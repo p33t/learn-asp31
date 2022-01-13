@@ -8,12 +8,14 @@ namespace api
     public class Controller1 : Controller
     {
         // GET
+        [HttpGet]
         public IActionResult Get()
         {
             return Ok("Hello from 1");
         }
 
         [Route("date-time-query")]
+        [HttpGet]
         public IActionResult GetDateTimeQuery([FromQuery] DateTime arg)
         {
             /*
@@ -25,6 +27,7 @@ namespace api
         }
 
         [Route("date-time-offset-query")]
+        [HttpGet]
         public IActionResult GetDateTimeOffsetQuery([FromQuery] DateTimeOffset arg)
         {
             /*
@@ -36,6 +39,7 @@ namespace api
         }
         
         [Route("date-time-body")]
+        [HttpGet]
         public IActionResult GetDateTimeBody([FromBody] DateTime arg)
         {
             /*
@@ -50,6 +54,7 @@ namespace api
         }
 
         [Route("model-body")]
+        [HttpGet]
         public IActionResult GetDateTimeBody([FromBody] Model1 model1)
         {
             /*
