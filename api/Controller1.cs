@@ -1,4 +1,5 @@
 ﻿using System;
+using api.model;
 using Microsoft.AspNetCore.Mvc;
 
 namespace api
@@ -46,6 +47,15 @@ namespace api
               10:00Z  >> 10:00Z
              */
             return Ok(arg.ToString("O"));
+        }
+
+        [Route("model-body")]
+        public IActionResult GetDateTimeBody([FromBody] Model1 model1)
+        {
+            /*
+            For NewtonsoftJson with DateTimeZoneHandling.UTC:
+             */
+            return Ok(model1.DateTimeField.ToString("O"));
         }
     }
 }

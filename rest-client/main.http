@@ -8,6 +8,35 @@ GET https://localhost:5001/date-time-query?arg=2022-01-12T10:00-05:00
 ### DateTime in query - Zulu
 GET https://localhost:5001/date-time-query?arg=2022-01-12T10:00Z
 
+### DateTime in query - Local
+GET https://localhost:5001/date-time-query?arg=2022-01-12T10:00
+
+### DateTime in query - None
+GET https://localhost:5001/date-time-query
+
+
+### Model in body - Offset
+GET https://localhost:5001/model-body
+Content-Type: application/json
+
+{
+  "DateTimeField": "2022-01-12T10:00-05:00"
+}
+
+### Model in body - Zulu
+GET https://localhost:5001/model-body
+Content-Type: application/json
+
+{
+  "DateTimeField": "2022-01-12T10:00Z"
+}
+
+
+
+
+
+
+
 ### DateTimeOffset in query - Offset
 GET https://localhost:5001/date-time-offset-query?arg=2022-01-12T10:00-05:00
 
