@@ -9,6 +9,25 @@ namespace api.binder
     {
         // public static readonly Type[] SUPPORTED_TYPES = new Type[] { typeof(DateTime), typeof(DateTime?) };
 
+        /// <summary>
+        /// Parse the UTC or Offset DateTime string and return as a UTC DateTime
+        /// OR return null if string is blank or a local DateTime (without a timezone)
+        /// </summary>
+        public static DateTime? ParseUtcDateTime(string s)
+        {
+            if (!DateTime.TryParse(s, out var result))
+            {
+                return null;
+            }
+
+            if (result.Kind == DateTimeKind.Unspecified)
+            {
+                return null;
+            }
+
+            return result.ToUniversalTime();
+        }
+        
         public Task BindModelAsync(ModelBindingContext bindingContext)
         {
             if (bindingContext == null)
