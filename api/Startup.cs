@@ -42,7 +42,7 @@ namespace api
             Console.Out.WriteLine($">>>>>>>>>>>>>>>>>>>>>>>>>>CustomSetting11={setting11}");
             var customSection1 = new CustomSection1();
             configuration.Bind("CustomSection1", customSection1);
-            Console.Out.WriteLine($">>>>>>>> Via binding >>>>>CustomSetting11={setting11}");
+            Console.Out.WriteLine($">>>>>>>> Via binding >>>>>CustomSetting11={customSection1.CustomSetting11}");
 
             app.UseSwagger();
             
