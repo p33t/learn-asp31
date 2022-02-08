@@ -1,6 +1,8 @@
+using System;
 using api.binder;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Newtonsoft.Json;
@@ -32,8 +34,12 @@ namespace api
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
+        public void Configure(IApplicationBuilder app, IWebHostEnvironment env, IConfiguration  configuration)
         {
+            var section1 = configuration.GetSection("CustomSection1");
+            var setting11 = section1["CustomSetting11"];
+            Console.Out.WriteLine($">>>>>>>>>>>>>>>>>>>>>>>>>>CustomSetting11={setting11}");
+
             app.UseSwagger();
             
             if (env.IsDevelopment())
