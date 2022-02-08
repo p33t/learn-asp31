@@ -1,5 +1,6 @@
 using System;
 using api.binder;
+using api.model;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
@@ -39,6 +40,9 @@ namespace api
             var section1 = configuration.GetSection("CustomSection1");
             var setting11 = section1["CustomSetting11"];
             Console.Out.WriteLine($">>>>>>>>>>>>>>>>>>>>>>>>>>CustomSetting11={setting11}");
+            var customSection1 = new CustomSection1();
+            configuration.Bind("CustomSection1", customSection1);
+            Console.Out.WriteLine($">>>>>>>> Via binding >>>>>CustomSetting11={setting11}");
 
             app.UseSwagger();
             
