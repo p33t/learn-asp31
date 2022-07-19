@@ -62,6 +62,5 @@ POST https://localhost:5001/validating-endpoint
 Content-Type: application/json
 
 {
-  "Namex": "z",
-  "Name": null
+  "Name": "z"
 }

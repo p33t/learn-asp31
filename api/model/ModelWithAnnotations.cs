@@ -5,13 +5,11 @@ namespace api.model
 {
     public class ModelWithAnnotations
     {
-        // this only works for 'null'
-        [JsonProperty(Required = Required.Always)]
-
-        // These don't seem to do anything
-        // [Required(AllowEmptyStrings = false)]
-        // [StringLength(100, MinimumLength = 3)]
-        // [MinLength(3)]
-        public string Name;
+        [Required(AllowEmptyStrings = false)]
+        [StringLength(100, MinimumLength = 3)]
+        public string Name { get; set; }
+        
+        // prevents annotation checking. Need to use { get; set; }
+        // public string Name;
     }
 }
