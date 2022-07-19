@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Threading.Tasks;
 using api.model;
 using Microsoft.AspNetCore.Mvc;
 
@@ -61,6 +62,18 @@ namespace api
             For NewtonsoftJson with DateTimeZoneHandling.UTC:
              */
             return Ok(model1.DateTimeField.ToString("O"));
+        }
+
+        [HttpPost("validating-endpoint")]
+        public IActionResult ValidatingEndpoint([FromBody] ModelWithAnnotations model)
+        {
+            if (!ModelState.IsValid)
+            {
+                // hmm... can't seem to reach here with proper validation. See ModelWithAnnotations
+                return BadRequest(ModelState);
+            }
+
+            return Ok(model);
         }
     }
 }

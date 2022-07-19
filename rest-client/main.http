@@ -54,3 +54,14 @@ GET https://localhost:5001/date-time-body
 Content-Type: application/json
 
 "2022-01-12T10:00Z"
+
+
+
+### Validating the model
+POST https://localhost:5001/validating-endpoint
+Content-Type: application/json
+
+{
+  "Namex": "z",
+  "Name": null
+}
